@@ -1,0 +1,6 @@
+export enum MedicalSpecialty {
+    CARDIOLOGY = 'CARDIOLOGY',
+    DERMATOLOGY = 'DERMATOLOGY',
+    PEDIATRICS = 'PEDIATRICS',
+    ORTHOPEDICS = 'ORTHOPEDICS',
+}

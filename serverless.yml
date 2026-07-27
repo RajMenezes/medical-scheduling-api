@@ -1,0 +1,26 @@
+service: medical-scheduling-api
+
+frameworkVersion: "4"
+
+provider:
+  stage: ${opt:stage, 'dev'}
+  runtime: nodejs22.x
+  region: us-east-1
+
+plugins:
+  - serverless-offline
+
+build:
+  esbuild:
+    bundle: true
+    minify: false
+    sourcemap: true
+
+functions:
+  health:
+    handler: src/presentation/handlers/health.handler
+
+    events:
+      - httpApi:
+          method: GET
+          path: /health

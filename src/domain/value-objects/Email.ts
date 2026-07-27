@@ -1,27 +1,23 @@
-export class Email {
-  private readonly value: string;
+import { ValueObject } from './ValueObject.js';
 
+export class Email extends ValueObject<string> {
   constructor(value: string) {
     const normalized = value.trim().toLowerCase();
 
     if (!Email.isValid(normalized)) {
-      throw new Error('Invalid email');
+      throw new Error('Invalid email.');
     }
 
-    this.value = normalized;
-  }
-
-  public getValue(): string {
-    return this.value;
-  }
-
-  public equals(other: Email): boolean {
-    return this.value === other.value;
+    super(normalized);
   }
 
   private static isValid(email: string): boolean {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     return regex.test(email);
+  }
+
+  public toString(): string {
+    return this.value;
   }
 }

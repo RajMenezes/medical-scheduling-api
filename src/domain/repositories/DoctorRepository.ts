@@ -1,7 +1,6 @@
-import type { Doctor } from '../entities/Doctor.js';
+import type { DoctorSchedule } from "../entities/DoctorSchedule.js";
+
 
 export interface DoctorRepository {
-  findById(id: string): Promise<Doctor | null>;
-
-  findAll(): Promise<Doctor[]>;
+    findAllSchedules(): Promise<DoctorSchedule[]>;
 }
